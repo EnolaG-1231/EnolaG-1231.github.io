@@ -1,0 +1,190 @@
+# PROJECT
+site_name: Mitsuki's Garden
+site_url: 'https://localhost:8000/'
+site_author: Mitsuki_G
+site_description:
+  Welcome to Mitsuki's rabbit hole. 
+  This site serves as a personal knowledge base for me to record my thoughts and ideas.
+  Feel free to explore and learn alongside me!
+
+# REPOSITORY
+repo_name: Mitsuki_G_Git
+repo_url: https://github.com/EnolaG-1231/
+
+# COPYRIGHT
+copyright: 'Copyright &copy; 2025 ~ now Mitsuki_Lian. All rights reserved.'
+
+# CONFIGURATION
+theme:
+  name: material
+  favicon: static/favicon.png # 网页小图标
+  logo: static/logo.png
+  language: 'en'
+  features:
+    - announce.dismiss # 呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
+    # - content.action.edit # 编辑按钮，似乎没啥用
+    # - content.action.view # 查看按钮，似乎没啥用
+    - content.code.annotate # 代码注释
+    - content.code.copy # 代码复制按钮
+    - navigation.expand # tab侧边导航栏默认展开
+    # - navigation.footer # 底部导航栏
+    - navigation.indexes # 索引按钮可以直接触发文件，而不是只能点击其下属选项浏览，这个功能可以给对应的section提供很好的预览和导航功能
+    - navigation.instant.prefetch # 预加载
+    - navigation.instant.progress # 进度条
+    - navigation.path # 导航路径，好像没啥用
+    - navigation.sections # 导航栏的section
+    - navigation.tabs #顶级索引被作为tab
+    - navigation.tabs.sticky # tab始终可见
+    - navigation.top # 上滑出现返回顶部按钮
+    - navigation.tracking #导航栏跟踪
+    - search.highlight # 搜索高亮
+    - search.suggest # 搜索推荐补全单词
+    - search.share # 搜索分享
+    - toc.follow # 目录跟踪-页面右侧的小目录
+    # - toc.integrate # 目录跟踪集成到左侧大目录中
+  icon:
+    repo: fontawesome/brands/github #右上角图标
+    logo: material/rabbit
+  
+  palette:
+    - media: "(prefers-color-scheme: light)" # 浅色
+      scheme: default
+      primary: amber
+      accent: cyan
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" # 深色
+      scheme: slate
+      primary: black
+      accent: lime
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font: # 默认，一般不改
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+# COMPONENTS
+plugins:
+  - tags
+  - blog:
+      enabled: true
+      blog_toc: true # 显示文章摘要
+  # - rss:
+  #     match_path: blog/posts/* # (1)!
+  #     date_from_meta:
+  #       as_creation: date
+  #     categories:
+  #       - categories
+  #       - tags # (2)!
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])' # 分隔符
+  - minify: #压缩插件
+      minify_html: true
+
+markdown_extensions: # 根据指定编程语言高亮显示代码，并可以设置代码段标题
+  - abbr
+  - admonition # 信息块
+  - attr_list # 属性列表
+  - def_list
+  - footnotes # 脚注
+  - md_in_html # html中的markdown
+  - toc:
+      permalink: true
+      toc_depth: 4
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret  # 启用：下划线 ^^、上标 ^
+  - pymdownx.critic
+  - pymdownx.details # 启用：可折叠的 Admonition
+  - pymdownx.emoji: # 表情包
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      # options:
+        # custom_icons: # 自定义图标集
+        # - overrides/.icons
+  - pymdownx.highlight: # 语法高亮
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite # 内联语法高亮
+  - pymdownx.keys # 启用：键盘键 ++
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark # 启用：突出显示 == 
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences: # 代码块
+      custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true 
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde # 启用：删除线 ~~、下标 ~
+  
+
+# navigation
+nav:
+  - Home: 'index.md'
+  - Docs:
+    - Note1: 'doc/n1.md'
+    - Note2: 'doc/n2.md'
+  - Blog:
+    - blog/index.md
+  - Gallery: 'gallery.md'
+  - Logs: 'log.md'
+
+# extra configuration
+extra:
+  generator: false # 是否显示生成器
+  analytics: #google分析工具，似乎没用到
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+    feedback: # feedback form
+      title: Was this page helpful?
+      ratings:
+        - icon: material/thumb-up
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thank you for your feedback! 
+        - icon: material/thumb-down-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+  social: #社媒
+    - icon: fontawesome/brands/github
+      link: https://github.com/EnolaG-1231/
+  tags: # 自定义标签（？
+    Default: default-tag
+    Software: software-tag
+    Hardware: hardware-tag
+  # consent: # 征求同意 Cookie
+  #   title: Cookie consent
+  #   description: >- 
+  #     We use cookies to recognize your repeated visits and preferences, as well
+  #     as to measure the effectiveness of our documentation and whether users
+  #     find what they're searching for. With your consent, you're helping us to
+  #     make our documentation better.
+
+
+# extra_css:
+#   - assets/css/custom.css   # 引用自定义 CSS 文件
+# extra_javascript:
+#   - assets/js/loader.js     # 引用自定义 JS 文件

@@ -1,0 +1,3 @@
+# Blog
+
+all blogs index
