@@ -1,6 +1,6 @@
 # PROJECT
 site_name: Mitsuki's Garden
-site_url: 'https://localhost:8000/'
+site_url: https://enolag-1231.github.io/
 site_author: Mitsuki_G
 site_description:
   Welcome to Mitsuki's rabbit hole. 
@@ -26,6 +26,9 @@ theme:
     # - content.action.view # 查看按钮，似乎没啥用
     - content.code.annotate # 代码注释
     - content.code.copy # 代码复制按钮
+    - content.tabs.link # 代码块的tab可以直接链接
+    - content.tooltips # 工具提示
+    # - header.autohide # 自动隐藏标题栏
     - navigation.expand # tab侧边导航栏默认展开
     # - navigation.footer # 底部导航栏
     - navigation.indexes # 索引按钮可以直接触发文件，而不是只能点击其下属选项浏览，这个功能可以给对应的section提供很好的预览和导航功能
@@ -43,14 +46,14 @@ theme:
     - toc.follow # 目录跟踪-页面右侧的小目录
     # - toc.integrate # 目录跟踪集成到左侧大目录中
   icon:
-    repo: fontawesome/brands/github #右上角图标
+    repo: fontawesome/brands/github #右上角仓库图标
     logo: material/rabbit
   
   palette:
     - media: "(prefers-color-scheme: light)" # 浅色
       scheme: default
-      primary: amber
-      accent: cyan
+      primary: amber # teal绿好看
+      accent: cyan # 链接等可交互原件的高亮色
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
@@ -68,9 +71,28 @@ theme:
 # COMPONENTS
 plugins:
   - tags
+  - offline
   - blog:
       enabled: true
       blog_toc: true # 显示文章摘要
+      post_date_format: full # 时间
+      draft: true
+      draft_if_future_date: true # 自动将具有未来日期的帖子标记为草稿
+      post_readtime: true
+      post_readtime_words_per_minute: 265 # 计算帖子的阅读时间时读者每分钟预计阅读的字数
+      post_url_format: "{date}/{slug}"
+      categories_slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+      # categories_toc: true
+      # pagination_per_page: 5
+      pagination_url_format: "page/{page}"
+      authors_file: "{blog}/.authors.yml" # 作者信息
+  # - git-revision-date-localized:
+  #     type: iso_date
+  #     exclude:
+  #       - index.md
+  #       - waline.md
   # - rss:
   #     match_path: blog/posts/* # (1)!
   #     date_from_meta:
@@ -90,10 +112,11 @@ markdown_extensions: # 根据指定编程语言高亮显示代码，并可以设
   - def_list
   - footnotes # 脚注
   - md_in_html # html中的markdown
+  - meta # 支持Markdown文件上方自定义标题标签等
   - toc:
       permalink: true
       toc_depth: 4
-  - pymdownx.arithmatex:
+  - pymdownx.arithmatex: # latex支持
       generic: true
   - pymdownx.betterem:
       smart_enable: all
@@ -106,8 +129,10 @@ markdown_extensions: # 根据指定编程语言高亮显示代码，并可以设
       # options:
         # custom_icons: # 自定义图标集
         # - overrides/.icons
-  - pymdownx.highlight: # 语法高亮
+  - pymdownx.highlight: # 代码块高亮
+      auto_title: true # 显示编程语言名称
       anchor_linenums: true
+      linenums: true # 显示行号
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite # 内联语法高亮
@@ -115,7 +140,7 @@ markdown_extensions: # 根据指定编程语言高亮显示代码，并可以设
   - pymdownx.magiclink:
       normalize_issue_symbols: true
       repo_url_shorthand: true
-      user: squidfunk
+      user: Mitsuki_G
       repo: mkdocs-material
   - pymdownx.mark # 启用：突出显示 == 
   - pymdownx.smartsymbols
@@ -151,8 +176,8 @@ nav:
 
 # extra configuration
 extra:
-  generator: false # 是否显示生成器
-  analytics: #google分析工具，似乎没用到
+  generator: true # 删除页脚显示“使用MkDocs材料制造”
+  analytics: # 目前懒得搞google analytics，这块儿暂时没用
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY
     feedback: # feedback form
@@ -188,3 +213,35 @@ extra:
 #   - assets/css/custom.css   # 引用自定义 CSS 文件
 # extra_javascript:
 #   - assets/js/loader.js     # 引用自定义 JS 文件
+
+extra_javascript:
+  - javascripts/extra.js 
+  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/extra.js  # extra的cdn
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  # - javascripts/mathjax-config.js
+  # - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML
+
+  - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
+  - ckplayer/js/ckplayer.js
+  # - https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js
+  # - javascripts/backbound1.js
+  # - javascripts/rellax.min.js
+  - https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js
+  # - https://res.zvo.cn/translate/translate.js  # Translate
+
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/link.css
+  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/extra.css # extra.css的CDN
+  # - stylesheets/extra1.css
+  # - stylesheets/video.css
+  # - https://unpkg.com/@waline/client@v2/dist/waline.css
+  - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.css #评论
+  - ckplayer/css/ckplayer.css
+  - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css
+  # - https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css
+  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css  #字体
+
+
