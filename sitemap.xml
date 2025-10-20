@@ -2,38 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://enolag-1231.github.io/index.html</loc>
-         <lastmod>2025-10-16</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>https://enolag-1231.github.io/gallery.html</loc>
-         <lastmod>2025-10-16</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>https://enolag-1231.github.io/log.html</loc>
-         <lastmod>2025-10-16</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>https://enolag-1231.github.io/blog/index.html</loc>
-         <lastmod>2025-10-16</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>https://enolag-1231.github.io/blog/2025/10/16/hello-world.html</loc>
-         <lastmod>2025-10-16</lastmod>
+         <lastmod>2025-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://enolag-1231.github.io/blog/2025/10/18/sad--%E5%AD%A3%E8%8A%82%E6%80%A7%E6%8A%91%E9%83%81.html</loc>
+         <lastmod>2025-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://enolag-1231.github.io/blog/2025/10/19/%E9%A3%8E%E8%87%AA%E6%88%91%E4%B8%8E%E6%97%A0%E5%B0%BD%E7%9A%84%E5%A4%9C.html</loc>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>https://enolag-1231.github.io/doc/n1.html</loc>
-         <lastmod>2025-10-16</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>https://enolag-1231.github.io/doc/n2.html</loc>
-         <lastmod>2025-10-16</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>https://enolag-1231.github.io/blog/archive/2025.html</loc>
-         <lastmod>2025-10-16</lastmod>
+         <lastmod>2025-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://enolag-1231.github.io/blog/category/heran.html</loc>
+         <lastmod>2025-10-20</lastmod>
+    </url>
+    <url>
+         <loc>https://enolag-1231.github.io/blog/category/mental.html</loc>
+         <lastmod>2025-10-20</lastmod>
     </url>
     <url>
          <loc>https://enolag-1231.github.io/blog/category/mkdocs.html</loc>
-         <lastmod>2025-10-16</lastmod>
+         <lastmod>2025-10-20</lastmod>
     </url>
 </urlset>
