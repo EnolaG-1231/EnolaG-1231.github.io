@@ -169,8 +169,10 @@ nav:
   - Docs:
     - Note1: 'doc/n1.md'
     - Note2: 'doc/n2.md'
+    - about: doc/about.md
   - Blog:
     - blog/index.md
+    - about: blog/about.md
   - Gallery: 'gallery.md'
   - Logs: 'log.md'
 

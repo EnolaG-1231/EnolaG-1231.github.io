@@ -1,0 +1,49 @@
+/* === 全站背景：支持浅色(default) / 深色(slate)两套 === */
+:root[data-md-color-scheme="default"] {
+  --site-bg: url("/static/bg-light.png");   /* 浅色模式背景 */
+  --site-bg-overlay: rgba(255,255,255,0.78);/* 内容底卡颜色 */
+}
+
+:root[data-md-color-scheme="slate"] {
+  --site-bg: url("/static/bg-dark.png");    /* 深色模式背景 */
+  --site-bg-overlay: rgba(20,20,22,0.68);
+}
+
+/* 画整页背景图（不遮挡点击） */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: var(--site-bg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1; /* 想更淡可以调小，比如 0.6 */
+}
+
+/* 让主体容器浮在背景之上，并去掉默认纯色底 */
+.md-container, .md-main, .md-content, .md-sidebar, .md-header {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+/* 给正文区加半透明底，保证可读性 */
+.md-main .md-content {
+  background: var(--site-bg-overlay);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+
+/* 代码块也稍作衬底，避免背景图干扰阅读 */
+.md-typeset pre, .md-typeset code {
+  background: rgba(0,0,0,0.06);
+}
+:root[data-md-color-scheme="slate"] .md-typeset pre,
+:root[data-md-color-scheme="slate"] .md-typeset code {
+  background: rgba(255,255,255,0.06);
+}
