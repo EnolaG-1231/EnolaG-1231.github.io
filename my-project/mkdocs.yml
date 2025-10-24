@@ -52,7 +52,7 @@ theme:
   palette:
     - media: "(prefers-color-scheme: light)" # 浅色
       scheme: default
-      primary: amber # teal绿好看
+      primary: teal # teal绿、amber黄好看 
       accent: cyan # 链接等可交互原件的高亮色
       toggle:
         icon: material/weather-night
@@ -209,12 +209,8 @@ extra:
   #     make our documentation better.
 
 
-# extra_css:
-#   - assets/css/custom.css   # 引用自定义 CSS 文件
-# extra_javascript:
-#   - assets/js/loader.js     # 引用自定义 JS 文件
 
-extra_javascript:
+extra_javascript: # 引用自定义 JS 文件
   - javascripts/extra.js 
   # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/extra.js  # extra的cdn
   - javascripts/mathjax.js
@@ -231,7 +227,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js
   # - https://res.zvo.cn/translate/translate.js  # Translate
 
-extra_css:
+extra_css: # 引用自定义 CSS 文件
   - stylesheets/extra.css
   - stylesheets/link.css
   # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/extra.css # extra.css的CDN
