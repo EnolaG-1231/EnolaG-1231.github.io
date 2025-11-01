@@ -115,14 +115,15 @@ plugins:
   - minify: #压缩插件
       minify_html: true
   - encryptcontent:
+      threshold_warning_min_entropy: 0
       title_prefix: 'Protected'
       summary: 'This content is protected. Please enter the password.'
       placeholder: 'Enter password'
       password_button_text: ' to unlock YOUR content'
-      encryption_summary: "Legal documents require authorization to view."
+      # encryption_summary: "Legal documents require authorization to view."
       encryption_info_message: "Contact the site administrator for access."
       decryption_failure_message: "Incorrect credentials. Please try again."
-      remember_key: true
+      # remember_key: true
       password_button: true
       # 以下三项对于自定义主题可以指定自己的css类，但暂时不懂搞
       form_class: 'custom-decrypt-form'
@@ -130,8 +131,8 @@ plugins:
       button_class: 'custom-button primary'
       # 密码管理
       password_inventory:
-        guest: "031231"
-        admin: "Lasmiracle"
+        guest: "Lian-031231"
+        admin: "Lasmiracle-1131"
 
 markdown_extensions: # 根据指定编程语言高亮显示代码，并可以设置代码段标题
   - abbr
@@ -258,7 +259,7 @@ extra_javascript: # 引用自定义 JS 文件
   # - https://res.zvo.cn/translate/translate.js  # Translate
 
 extra_css: # 引用自定义 CSS 文件
-  - stylesheets/extra.css # 固定放最后避免被覆盖。。
+ 
   - stylesheets/link.css
   # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/extra.css # extra.css的CDN
   # - stylesheets/extra1.css
@@ -269,5 +270,5 @@ extra_css: # 引用自定义 CSS 文件
   - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css
   # - https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css
   - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css  #字体
-
+  - stylesheets/extra.css # 固定放最后避免被覆盖。。
 

@@ -18,6 +18,7 @@ markdown-callouts
 mkdocs-document-dates
 neoteroi-mkdocs
 # mkdocs-ai-summary-wcowin  # 已禁用AI摘要功能
+mkdocs-encryptcontent-plugin
 
 # 中文处理
 jieba>=0.42.1
