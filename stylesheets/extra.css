@@ -1,19 +1,9 @@
-/* ==== 背景图：浅/深两套 ==== */
-/* 注意：本文件在 /stylesheets/ 下，背景图在 /static/ 下，所以用 ../static/... */
-html[data-md-color-scheme="default"] {
-  --site-bg: url("../static/bg-light.png");
-}
-
-html[data-md-color-scheme="slate"] {
-  --site-bg: url("../static/bg-dark.png");
-}
-
-/* 全站背景图（最底层，不遮挡点击） */
+/* 背景：浅/深随主题切换（先给浅色兜底） */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: var(--site-bg, none);
+  background-image: url("../static/bg-light.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -21,24 +11,35 @@ body::before {
   pointer-events: none;
   opacity: 1;
 }
+html[data-md-color-scheme="slate"] body::before,
+body[data-md-color-scheme="slate"]::before,
+[data-md-color-scheme="slate"] body::before {
+  background-image: url("../static/bg-dark.png") !important;
+}
 
-/* —— 默认：保持 Material 的“实心”样式 —— */
-/* 不去改 header / content / sidebars 的背景，让主题默认样式生效 */
+/* 内容浮在背景之上） */
+.md-container, .md-main, .md-content, .md-sidebar, .md-header { position: relative; z-index: 1; }
 
-/* —— 仅首页透明：给首页（html.is-home）下的容器做透明处理 —— */
-html.is-home .md-main .md-content,
-html.is-home .md-sidebar--primary,
-html.is-home .md-sidebar--secondary {
-  background: transparent !important;
+/* —— 非首页用主题默认变量 —— */
+html:not(:has(#home-flag)) .md-header,
+html:not(:has(#home-flag)) .md-main .md-content,
+html:not(:has(#home-flag)) .md-content__inner,
+html:not(:has(#home-flag)) .md-sidebar--primary,
+html:not(:has(#home-flag)) .md-sidebar--secondary {
+  background-color: var(--md-default-bg-color) !important;
+}
+
+/* —— 首页正文 / 左侧 / 右侧透明；顶部保持实心 —— */
+html:has(#home-flag) .md-main .md-content,
+html:has(#home-flag) .md-content__inner,
+html:has(#home-flag) .md-sidebar--primary,
+html:has(#home-flag) .md-sidebar--secondary {
+  background-color: transparent !important;
   box-shadow: none !important;
 }
 
-/* 代码块略作衬底（可选）：避免在透明背景上难读 */
-html.is-home .md-typeset pre,
-html.is-home .md-typeset code {
-  background: rgba(0,0,0,0.06);
-}
-html[data-md-color-scheme="slate"].is-home .md-typeset pre,
-html[data-md-color-scheme="slate"].is-home .md-typeset code {
-  background: rgba(255,255,255,0.06);
-}
+/* 首页代码块稍微垫底 */
+html:has(#home-flag) .md-typeset pre,
+html:has(#home-flag) .md-typeset code { background: rgba(0,0,0,0.06); }
+html[data-md-color-scheme="slate"]:has(#home-flag) .md-typeset pre,
+html[data-md-color-scheme="slate"]:has(#home-flag) .md-typeset code { background: rgba(255,255,255,0.06); }
