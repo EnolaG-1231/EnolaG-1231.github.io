@@ -1,6 +1,14 @@
-Mkdocs中文文档https://hellowac.github.io/mkdocs-docs-zh/user-guide/writing-your-docs/
-markdown高阶教程（脚注、表格）https://blog.csdn.net/sjc_0910/article/details/103749761
+Mkdocs中文文档<br>
+https://hellowac.github.io/mkdocs-docs-zh/user-guide/writing-your-docs/
 
+markdown高阶教程（脚注、表格）<br>
+https://blog.csdn.net/sjc_0910/article/details/103749761
+
+加密插件mkdocs-encryptcontent-plugin<br>https://github.com/unverbuggt/mkdocs-encryptcontent-plugin
+
+
+attr_list扩展md写法，添加图片标题、说明：<br>
+![这是Lian](doc_img/about_AttrList_illus.jpg){width="auto" data-title="《其实是没招了》" data-description="师傅你是做什么工作的"}
 
 ## Commands
 

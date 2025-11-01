@@ -72,6 +72,16 @@ theme:
 plugins:
   - tags
   - offline
+  - glightbox:
+      touchNavigation: true # 在移动设备上起用触摸/滑动导航
+      loop: true # 循环浏览图片
+      zoomable: true # 图片缩放
+      draggable: true # 拖动切换图片
+      auto_caption: true # 显示图片标题
+      caption_position: "left"
+      effect: fade
+      slide_effect: slide
+
   - blog:
       enabled: true
       blog_toc: true # 显示文章摘要
@@ -104,6 +114,24 @@ plugins:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])' # 分隔符
   - minify: #压缩插件
       minify_html: true
+  - encryptcontent:
+      title_prefix: 'Protected'
+      summary: 'This content is protected. Please enter the password.'
+      placeholder: 'Enter password'
+      password_button_text: ' to unlock YOUR content'
+      encryption_summary: "Legal documents require authorization to view."
+      encryption_info_message: "Contact the site administrator for access."
+      decryption_failure_message: "Incorrect credentials. Please try again."
+      remember_key: true
+      password_button: true
+      # 以下三项对于自定义主题可以指定自己的css类，但暂时不懂搞
+      form_class: 'custom-decrypt-form'
+      input_class: 'custom-input-field'
+      button_class: 'custom-button primary'
+      # 密码管理
+      password_inventory:
+        guest: "031231"
+        admin: "Lasmiracle"
 
 markdown_extensions: # 根据指定编程语言高亮显示代码，并可以设置代码段标题
   - abbr
@@ -167,8 +195,8 @@ markdown_extensions: # 根据指定编程语言高亮显示代码，并可以设
 nav:
   - Home: 'index.md'
   - Docs:
-    - Note1: 'doc/n1.md'
-    - Note2: 'doc/n2.md'
+    - Note1_Computer: 'doc/n1.md'
+    - Note2_Svenska: 'doc/n2.md'
     - about: doc/about.md
   - Blog:
     - blog/index.md
@@ -230,7 +258,7 @@ extra_javascript: # 引用自定义 JS 文件
   # - https://res.zvo.cn/translate/translate.js  # Translate
 
 extra_css: # 引用自定义 CSS 文件
-  - stylesheets/extra.css
+  - stylesheets/extra.css # 固定放最后避免被覆盖。。
   - stylesheets/link.css
   # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/extra.css # extra.css的CDN
   # - stylesheets/extra1.css
