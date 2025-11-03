@@ -115,7 +115,7 @@ plugins:
   - minify: #压缩插件
       minify_html: true
   - encryptcontent:
-      threshold_warning_min_entropy: 0
+      threshold_warning_min_entropy: 0 # 防对熵strict警告
       title_prefix: 'Protected'
       summary: 'This content is protected. Please enter the password.'
       placeholder: 'Enter password'
@@ -259,7 +259,6 @@ extra_javascript: # 引用自定义 JS 文件
   # - https://res.zvo.cn/translate/translate.js  # Translate
 
 extra_css: # 引用自定义 CSS 文件
- 
   - stylesheets/link.css
   # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/extra.css # extra.css的CDN
   # - stylesheets/extra1.css
