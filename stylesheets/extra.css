@@ -1,4 +1,4 @@
-/* 背景：浅/深随主题切换（先给浅色兜底） */
+/* 背景：浅/深随主题切换 */
 body::before {
   content: "";
   position: fixed;
@@ -17,7 +17,7 @@ body[data-md-color-scheme="slate"]::before,
   background-image: url("../static/bg-dark.png") !important;
 }
 
-/* 内容浮在背景之上） */
+/* 内容置于背景之上） */
 .md-container, .md-main, .md-content, .md-sidebar, .md-header { position: relative; z-index: 1; }
 
 /* —— 非首页用主题默认变量 —— */
