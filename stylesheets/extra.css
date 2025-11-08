@@ -1,45 +1,153 @@
-/* 背景：浅/深随主题切换 */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("../static/bg-light.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 1;
-}
-html[data-md-color-scheme="slate"] body::before,
-body[data-md-color-scheme="slate"]::before,
-[data-md-color-scheme="slate"] body::before {
-  background-image: url("../static/bg-dark.png") !important;
+/* ===========================
+   Theme brand colors（主题主色）
+   =========================== */
+:root {
+  --md-primary-fg-color: #518FC1;
+  --md-primary-fg-color--light: #67A7D8;
+  --md-primary-fg-color--dark: #3B6F9B;
+  --md-accent-fg-color: #00BCD4;
 }
 
-/* 内容置于背景之上） */
-.md-container, .md-main, .md-content, .md-sidebar, .md-header { position: relative; z-index: 1; }
+/* ===========================
+   图片与图标
+   =========================== */
+/* 通用圆角图片 */
+img.rounded, img.img1, img.img2, img.img3 { border-radius: 16px; }
 
-/* —— 非首页用主题默认变量 —— */
-html:not(:has(#home-flag)) .md-header,
-html:not(:has(#home-flag)) .md-main .md-content,
-html:not(:has(#home-flag)) .md-content__inner,
-html:not(:has(#home-flag)) .md-sidebar--primary,
-html:not(:has(#home-flag)) .md-sidebar--secondary {
-  background-color: var(--md-default-bg-color) !important;
+/* 社交图标着色（给容器加 .github/.bilibili/.twitter 类即可） */
+.github, .bilibili, .twitter { color: currentColor; }
+.github { color: #24292E; }      /* GitHub 深灰 */
+.bilibili { color: #EA7A99; }    /* B 站粉 */
+.twitter { color: #1DA1F2; }     /* X/Twitter 蓝 */
+.github svg, .bilibili svg, .twitter svg { fill: currentColor; }
+
+/* ===========================
+   卡片与内容容器
+   =========================== */
+/* Markdown 卡片（Material 的网格卡片） */
+.md-typeset .grid.cards>ol>li,
+.md-typeset .grid.cards>ul>li,
+.md-typeset .grid>.card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,.12);
+  padding: .8rem;
+  transition: box-shadow .2s, border-color .2s;
+}
+:root[data-md-color-scheme="slate"] .md-typeset .grid.cards>ol>li,
+:root[data-md-color-scheme="slate"] .md-typeset .grid.cards>ul>li,
+:root[data-md-color-scheme="slate"] .md-typeset .grid>.card {
+  box-shadow: 0 4px 12px rgba(0,0,0,.35);
 }
 
-/* —— 首页正文 / 左侧 / 右侧透明；顶部保持实心 —— */
-html:has(#home-flag) .md-main .md-content,
-html:has(#home-flag) .md-content__inner,
-html:has(#home-flag) .md-sidebar--primary,
-html:has(#home-flag) .md-sidebar--secondary {
-  background-color: transparent !important;
-  box-shadow: none !important;
+/* 通用盒子（自用） */
+.box {
+  background: #f8fafc;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 12px;
+  padding: 1rem;
+}
+:root[data-md-color-scheme="slate"] .box {
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.12);
+}
+.box--outline {
+  background: transparent;
+  border: 1px solid var(--md-primary-fg-color);
 }
 
-/* 首页代码块稍微垫底 */
-html:has(#home-flag) .md-typeset pre,
-html:has(#home-flag) .md-typeset code { background: rgba(0,0,0,0.06); }
-html[data-md-color-scheme="slate"]:has(#home-flag) .md-typeset pre,
-html[data-md-color-scheme="slate"]:has(#home-flag) .md-typeset code { background: rgba(255,255,255,0.06); }
+/* 旧的 rcorners 系列（如你已有文章引用这些 id，可继续用） */
+#rcorners1 {
+  border-radius: 16px;
+  background: linear-gradient(to right, #BDE0F5, #DAE8F1, #EEEDEE);
+  padding: 16px;
+  text-align: center;
+}
+#rcorners2, #rcorners3 {
+  border-radius: 16px;
+  border: 1px solid #518FC1;
+  padding: 16px;
+}
+
+/* ===========================
+   按钮（简化版）
+   =========================== */
+.btn {
+  display: inline-block;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  padding: 10px 18px;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .2s, color .2s, border-color .2s;
+}
+.btn--primary {
+  background: var(--md-primary-fg-color);
+  color: #fff;
+}
+.btn--primary:hover { filter: brightness(1.05); }
+.btn--accent {
+  background: var(--md-accent-fg-color);
+  color: #fff;
+}
+.btn--accent:hover { filter: brightness(1.06); }
+.btn--ghost {
+  background: transparent;
+  color: var(--md-primary-fg-color);
+  border-color: var(--md-primary-fg-color);
+}
+.btn--ghost:hover {
+  background: rgba(81,143,193,.08);
+}
+
+ 
+/* ===========================
+   自定义 Admonition（提示块）
+   使用：  !!! pied-piper "Title"
+   =========================== */
+:root {
+  --admo-green: #2B9B46;
+  --admo-green-bg: rgba(43,155,70,.08);
+  --admo-icon: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M25.8 5.4v19.2H4.2V5.4h21.6ZM9.6 10.8 13.8 15 9.6 19.2M15.6 19.2h6' stroke='%23101112' stroke-width='1.2'/%3E%3C/svg%3E");
+}
+/* 容器与边框色 */
+.md-typeset .admonition.pied-piper,
+.md-typeset details.pied-piper {
+  border-color: var(--admo-green);
+}
+/* 标题底色 */
+.md-typeset .pied-piper > .admonition-title,
+.md-typeset .pied-piper > summary {
+  background: var(--admo-green-bg);
+}
+/* 标题图标（用 mask 呈现内联 SVG） */
+.md-typeset .pied-piper > .admonition-title::before,
+.md-typeset .pied-piper > summary::before {
+  background-color: var(--admo-green);
+  -webkit-mask-image: var(--admo-icon);
+  mask-image: var(--admo-icon);
+}
+
+/* ===========================
+   右侧目录（小目录）参考线
+   =========================== */
+nav.md-nav--secondary ul {
+  border-left: 1px solid rgba(81,143,193,.35);
+  padding-left: .75rem;
+}
+
+/* ===========================
+   细节微调
+   =========================== */
+/* 搜索输入使用正文同款字体（视觉统一） */
+.md-search__input { font-family: inherit; }
+
+/* 代码/内联 code 的对比度稍微提升（更易读） */
+.md-typeset code, .md-typeset pre {
+  background: rgba(0,0,0,.04);
+}
+:root[data-md-color-scheme="slate"] .md-typeset code,
+:root[data-md-color-scheme="slate"] .md-typeset pre {
+  background: rgba(255,255,255,.06);
+}
