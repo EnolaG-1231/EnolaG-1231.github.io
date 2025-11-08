@@ -1,32 +1,53 @@
-/* 仅首页（<html> 有 .is-home 时）给中间正文容器挂背景图
-   —— 不影响顶部栏、底部、别的页面  */
+/* 只在首页挂背景（检测 DOM 里有没有 #home-flag）——纯 CSS，不用 JS */
 
-/* 浅色主题：用浅色图 */
-html.is-home[data-md-color-scheme="default"] .md-content {
-  background-image: url("../static/bg-light.png");
-}
+/* 默认：不挂背景，避免全站受影响 */
+body::before { content: none; }
 
-/* 深色主题：用深色图 */
-html.is-home[data-md-color-scheme="slate"] .md-content {
-  background-image: url("../static/bg-dark.png");
-}
-
-/* 通用背景属性 */
-html.is-home .md-content {
+/* 首页 + 浅色主题 */
+html:has(#home-flag)[data-md-color-scheme="default"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("../static/bg-light.png"); /* 用站点根路径，避免相对路径偏移 */
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;     /* 想避免抖动可改成 scroll */
-  min-height: 60vh;                 /* 首页内容少也能看到图 */
+  background-attachment: fixed;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
 }
 
-/* 让正文排版浮在背景之上（其实不需要 ::before 了，这行可选） */
-html.is-home .md-content .md-typeset {
+/* 首页 + 深色主题 */
+html:has(#home-flag)[data-md-color-scheme="slate"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("../static/bg-dark.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* 内容层浮到背景之上（不改 header/footer 的样式） */
+.md-container, .md-main, .md-content, .md-sidebar, .md-header {
   position: relative;
   z-index: 1;
 }
 
-/* 首页问候大字样式（保留你原本的效果） */
+/* 仅首页：把正文/侧栏面板设透明，露出背景 */
+html:has(#home-flag) .md-main .md-content,
+html:has(#home-flag) .md-content__inner,
+html:has(#home-flag) .md-sidebar--primary,
+html:has(#home-flag) .md-sidebar--secondary {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+/* 首页问候大字样式（保留你的样式） */
 .home-greeting {
   text-align: center;
   font-weight: 600;
@@ -35,7 +56,7 @@ html.is-home .md-content .md-typeset {
   margin: 1.2rem auto 2rem;
   padding: .75rem 1.25rem;
   max-width: 28ch;
-  background: rgba(0,0,0,0.0);      /* 要半透明底就调这里（例如 0.35） */
+  background: rgba(0,0,0,0.0);
   text-shadow: 0 1px 2px rgba(0,0,0,.35);
 }
 
@@ -46,3 +67,18 @@ html.is-home .md-content .md-typeset {
   }
 }
 
+/* 只改“content”优先级，强制生成伪元素 */
+html:has(#home-flag) body::before,
+html.is-home body::before {            /* 备选：如果用了 .is-home 的 JS */
+  content: "" !important;              /* 关键一行：覆盖掉前面的 content:none */
+}
+
+/* 主题切换：确保在首页时也能换图 */
+html:has(#home-flag)[data-md-color-scheme="default"] body::before,
+html.is-home[data-md-color-scheme="default"] body::before {
+  background-image: url("../static/bg-light.png") !important;
+}
+html:has(#home-flag)[data-md-color-scheme="slate"] body::before,
+html.is-home[data-md-color-scheme="slate"] body::before {
+  background-image: url("../static/bg-dark.png") !important;
+}
