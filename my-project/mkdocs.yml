@@ -19,7 +19,7 @@ theme:
   name: material
   favicon: static/favicon.png # 网页小图标
   logo: static/logo.png
-  language: 'en'
+  language: 'zh'
   features:
     - announce.dismiss # 呈现可标记为由用户读取的临时公告，可以包含一个用于取消当前公告的按钮
     # - content.action.edit # 编辑按钮，似乎没啥用
@@ -64,8 +64,8 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to light mode
-  font: # 默认，一般不改
-    text: 'Roboto'
+  font: # 详见font.css
+    text: 'LXGW WenKai'
     code: 'Roboto Mono'
 
 # COMPONENTS
@@ -81,6 +81,18 @@ plugins:
       caption_position: "left"
       effect: fade
       slide_effect: slide
+  - document-dates:
+      position: bottom # top or bottom
+      type: date # Data type: date, datetime, timeago
+      date_format: '%Y-%m-%d'
+      # time_format: '%H-%M-%S'
+      exclude:
+        - gallery.md
+        - index.md
+        - log.md
+        - blog/index.md
+        - blog/posts/*
+        - about/* # Exclude all files in private directory, including subdirectories
 
   - blog:
       enabled: true
@@ -133,6 +145,7 @@ plugins:
       password_inventory:
         guest: "Lian-031231"
         admin: "Lasmiracle-1131"
+
 
 markdown_extensions: # 根据指定编程语言高亮显示代码，并可以设置代码段标题
   - abbr
@@ -202,7 +215,7 @@ nav:
   - Blog:
     - blog/index.md
     - about: blog/about.md
-  - Gallery: 'gallery.md'
+  - Gallery: 'gallery/gallery.md'
   - Logs: 'log.md'
 
 # extra configuration
@@ -212,6 +225,8 @@ extra:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY
     feedback: # feedback form
+      exclude:
+        - index.md
       title: Was this page helpful?
       ratings:
         - icon: material/thumb-up
@@ -223,8 +238,9 @@ extra:
           name: This page could be improved
           data: 0
           note: >-
-            Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
-  social: #社媒
+            Thanks for your feedback! Help us improve this page by using our
+            <a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">feedback</a>
+  social: 
     - icon: fontawesome/brands/github
       link: https://github.com/EnolaG-1231/
   tags: # 自定义标签（？
@@ -238,36 +254,35 @@ extra:
   #     as to measure the effectiveness of our documentation and whether users
   #     find what they're searching for. With your consent, you're helping us to
   #     make our documentation better.
+  alternate:
+    - name: 中文
+      link: "javascript:GLMTranslate.translateTo('chinese_simplified');"
+      lang: zh
+    - name: English
+      link: "javascript:GLMTranslate.translateTo('english');"
+      lang: en
+    - name: 日本語
+      link: "javascript:GLMTranslate.translateTo('japanese');"
+      lang: ja
 
 
 
 extra_javascript: # 引用自定义 JS 文件
   - javascripts/extra.js 
-  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/extra.js  # extra的cdn
-  - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  # - javascripts/mathjax-config.js
-  # - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML
-
-  - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
-  - ckplayer/js/ckplayer.js
-  # - https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js
-  # - javascripts/backbound1.js
-  # - javascripts/rellax.min.js
-  - https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js
-  # - https://res.zvo.cn/translate/translate.js  # Translate
+  # 智谱清言翻译系统
+  - javascripts/glm-config.js
+  - javascripts/glm-translate.js
+  - javascripts/mathjax.js # latex支持
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  # 博客文章标记脚本
+  - javascripts/blog-scope.js
+  - javascripts/home-greeting.js
 
 extra_css: # 引用自定义 CSS 文件
-  - stylesheets/link.css
-  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/extra.css # extra.css的CDN
-  # - stylesheets/extra1.css
-  # - stylesheets/video.css
-  # - https://unpkg.com/@waline/client@v2/dist/waline.css
-  - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.css #评论
-  - ckplayer/css/ckplayer.css
-  - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css
-  # - https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css
-  - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css  #字体
-  - stylesheets/extra.css # 固定放最后避免被覆盖。。
-
+  # - stylesheets/link.css
+  - stylesheets/font.css  #字体，还没写
+  # - stylesheets/extra.css # 固定放最后避免被覆盖。。
+  - stylesheets/extra.css
+  - stylesheets/extra2.css
+  # - stylesheets/extra1.css # 原使用主题配色+背景方案
+  - stylesheets/home.css

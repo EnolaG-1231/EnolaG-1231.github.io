@@ -32,3 +32,6 @@ table
 | Content Cell | Content Cell  | Content Cell | Content Cell | Content Cell |
 | Content Cell | Content Cell  | Content Cell | Content Cell | Content Cell |
 | Content Cell | Content Cell  | Content Cell | Content Cell | Content Cell |
+
+!!! pied-piper "问候"
+    正在根据本机时间加载问候语...

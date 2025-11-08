@@ -1,0 +1,151 @@
+/* ============================================================================
+   extra2.css
+   用途：搜索框字体统一 + 自定义“公告栏”样式（支持浅/深色主题 & 响应式）
+   使用方式（在 Markdown 中直接插入 HTML）：
+     <div class="oneclip-announcement">
+       <div class="oneclip-announcement-content">
+         这是公告内容～ <a href="#">查看详情</a>
+         <a class="oneclip-cta" href="#">立即前往</a>
+       </div>
+     </div>
+   注意：
+   1) 该公告栏为自定义组件，与 Material 自带 announce/banner 无关；
+   2) 如果你使用 Material 的 announce.dismiss，请不要混用类名；
+   3) 颜色尽量基于主题变量，随主题切换。
+   ============================================================================ */
+
+
+/* ===========================
+   1) 搜索框字体：统一与正文一致
+   =========================== */
+.md-search__input {
+  font-family: inherit !important;
+}
+
+
+/* ===========================
+   2) 公告栏（浅色 & 深色适配）
+   ---------------------------
+   外层条形容器：实心色、圆角、阴影
+   使用主题主色（--md-primary-fg-color）保证风格统一
+   =========================== */
+.oneclip-announcement {
+  background-color: var(--md-primary-fg-color, #1976d2);
+  color: #ffffff;
+  font-weight: 400;
+  text-align: center;
+  padding: 15px 20px;
+  margin: -20px -20px 20px -20px; /* 顶部贴边展开；视你的版心可微调 */
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+
+/* 深色主题下的覆盖：降低纯色亮度以提升可读性和层次 */
+[data-md-color-scheme="slate"] .oneclip-announcement {
+  background-color: var(--md-default-bg-color, #263238);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .3);
+}
+
+
+/* ===========================
+   3) 公告栏内容容器
+   ---------------------------
+   限宽、行高、入场动画
+   =========================== */
+.oneclip-announcement-content {
+  max-width: 1200px;  /* 内容最大宽度 */
+  margin: 0 auto;     /* 居中 */
+  font-size: 14px;
+  line-height: 1.6;
+  animation: slideInDown .5s ease-out; /* 顶部下滑淡入 */
+}
+
+
+/* ===========================
+   4) 公告栏内链接样式
+   ---------------------------
+   链接保持白色并带半透明下划线；悬停时增强可见度
+   =========================== */
+.oneclip-announcement a {
+  color: #ffffff !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, .6);
+  transition: all .2s ease;
+  font-weight: 500;
+}
+
+.oneclip-announcement a:hover {
+  color: #ffffff !important;
+  text-decoration-color: #ffffff;
+}
+
+
+/* ===========================
+   5) CTA 按钮（公告栏右侧操作入口）
+   ---------------------------
+   半透明白底胶囊，悬停轻微上移
+   =========================== */
+.oneclip-cta {
+  margin-left: 12px;
+  background: rgba(255, 255, 255, .15);
+  padding: 6px 16px;
+  border-radius: 20px;
+  text-decoration: none !important;
+  display: inline-block;
+  transition: all .2s ease;
+  border: 1px solid rgba(255, 255, 255, .3);
+}
+
+.oneclip-cta:hover {
+  background: rgba(255, 255, 255, .25);
+  border-color: rgba(255, 255, 255, .5);
+  transform: translateY(-1px);
+}
+
+
+/* ===========================
+   6) 入场动画 keyframes
+   =========================== */
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* ===========================
+   7) 响应式适配（≤768px）
+   ---------------------------
+   调整公告栏内边距与字号，避免小屏过密
+   =========================== */
+@media screen and (max-width: 768px) {
+  .oneclip-announcement {
+    padding: 10px 12px;
+  }
+
+  .oneclip-announcement-content {
+    font-size: 13px;
+  }
+}
+
+
+/* ===========================
+   8) 无障碍：减少动画（系统偏好）
+   ---------------------------
+   在用户偏好“减少动态效果”时，关闭动画与位移
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  .oneclip-announcement-content {
+    animation: none !important;
+  }
+  .oneclip-cta:hover {
+    transform: none !important;
+  }
+}
