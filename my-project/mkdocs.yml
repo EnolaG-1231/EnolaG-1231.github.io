@@ -215,7 +215,8 @@ nav:
   - Blog:
     - blog/index.md
     - about: blog/about.md
-  - Gallery: 'gallery/gallery.md'
+  - Gallery: 
+    - 'gallery/gallery.md'
   - Logs: 'log.md'
 
 # extra configuration
@@ -225,8 +226,6 @@ extra:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY
     feedback: # feedback form
-      exclude:
-        - index.md
       title: Was this page helpful?
       ratings:
         - icon: material/thumb-up
@@ -277,12 +276,18 @@ extra_javascript: # 引用自定义 JS 文件
   # 博客文章标记脚本
   - javascripts/blog-scope.js
   - javascripts/home-greeting.js
+  # 鼠标点击特效
+  - javascripts/click-effects.js
+  - javascripts/md-link-fixer.js # 解决markdown内链接问题
+
 
 extra_css: # 引用自定义 CSS 文件
   # - stylesheets/link.css
   - stylesheets/font.css  #字体，还没写
+  - stylesheets/click-effects.css
   # - stylesheets/extra.css # 固定放最后避免被覆盖。。
   - stylesheets/extra.css
   - stylesheets/extra2.css
   # - stylesheets/extra1.css # 原使用主题配色+背景方案
+  - stylesheets/gallery.css
   - stylesheets/home.css

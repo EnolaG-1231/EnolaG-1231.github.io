@@ -2,7 +2,7 @@
 hide:
   - navigation
   - toc
-
+  - feedback
 ---
 <div id="home-flag" hidden></div>
 
