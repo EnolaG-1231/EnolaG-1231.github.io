@@ -11,9 +11,9 @@ site_description:
 # repo_name: Mitsuki_G_Git
 # repo_url: https://github.com/EnolaG-1231/EnolaG-1231.github.io
 
-# REPOSITORY
-repo_name: About this site
-repo_url: https://enolag-1231.github.io/doc/about/
+# # REPOSITORY
+# repo_name: About this site
+# repo_url: https://enolag-1231.github.io/doc/about/
 
 # COPYRIGHT
 copyright: 'Copyright &copy; 2025 ~ now Mitsuki_Lian. All rights reserved.'
@@ -49,9 +49,9 @@ theme:
     - search.share # 搜索分享
     - toc.follow # 目录跟踪-页面右侧的小目录
     # - toc.integrate # 目录跟踪集成到左侧大目录中
-  icon:
-    repo: fontawesome/brands/github #右上角仓库图标
-    logo: material/rabbit
+  # icon:
+  #   repo: fontawesome/brands/github #右上角仓库图标
+  #   logo: material/rabbit
   
   palette:
     - media: "(prefers-color-scheme: light)" # 浅色
