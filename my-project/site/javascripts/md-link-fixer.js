@@ -1,20 +1,31 @@
 (function () {
-  function fix(doc) {
+  function rewrite(doc) {
+    const useFileUrls = location.pathname.endsWith('.html'); // 只要当前路径是 .html，就按文件式 URL 处理
+
     doc.querySelectorAll('a[href$=".md"]').forEach(a => {
-      const href = a.getAttribute('href');
+      const raw = a.getAttribute('href');
       try {
-        const url = new URL(href, location.href); // 解析 ../ 等相对路径
-        url.pathname = url.pathname.replace(/\.md$/, '/'); // /gallery/g1.md -> /gallery/g1/
-        a.setAttribute('href', url.pathname + url.search + url.hash);
-      } catch (_) { /* ignore bad href */ }
+        const u = new URL(raw, location.href);
+        const was = u.pathname + (u.search || '') + (u.hash || '');
+
+        if (useFileUrls) {
+          // /gallery/index.md -> /gallery.html
+          // /gallery/g1.md    -> /gallery/g1.html
+          u.pathname = u.pathname
+            .replace(/\/index\.md$/i, '.html')
+            .replace(/\.md$/i, '.html');
+        } else {
+          // 兜底：目录式
+          u.pathname = u.pathname
+            .replace(/\/?index\.md$/i, '/')
+            .replace(/\.md$/i, '/');
+        }
+
+        a.setAttribute('href', u.pathname + (u.search || '') + (u.hash || ''));
+        console.debug?.('[md-link-fixer]', was, '→', a.getAttribute('href'));
+      } catch {}
     });
   }
-
-  // 首次加载
-  fix(document);
-
-  // Material instant navigation：每次页面切换再跑一遍
-  if (window.document$ && typeof window.document$.subscribe === 'function') {
-    window.document$.subscribe(fix);
-  }
+  rewrite(document);
+  if (window.document$?.subscribe) window.document$.subscribe(rewrite);
 })();
