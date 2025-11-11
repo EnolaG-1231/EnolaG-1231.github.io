@@ -1,6 +1,6 @@
 ---
-# title: "Secret Gallery"
-# level: admin
+title: "Secret Gallery"
+level: admin
 hide:
   - navigation   # 隐藏左侧栏
   - toc          # 隐藏右侧目录
