@@ -288,6 +288,5 @@ extra_css: # 引用自定义 CSS 文件
   # - stylesheets/extra.css # 固定放最后避免被覆盖。。
   - stylesheets/extra.css
   - stylesheets/extra2.css
-  # - stylesheets/extra1.css # 原使用主题配色+背景方案
   - stylesheets/gallery.css
-  - stylesheets/home.css
+  - stylesheets/home.css # 放最后防覆盖
