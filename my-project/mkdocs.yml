@@ -7,9 +7,13 @@ site_description:
   This site serves as a personal knowledge base for me to record my thoughts and ideas.
   Feel free to explore and learn alongside me!
 
+# # REPOSITORY
+# repo_name: Mitsuki_G_Git
+# repo_url: https://github.com/EnolaG-1231/EnolaG-1231.github.io
+
 # REPOSITORY
-repo_name: Mitsuki_G_Git
-repo_url: https://github.com/EnolaG-1231/EnolaG-1231.github.io
+repo_name: About this site
+repo_url: https://enolag-1231.github.io/doc/about/
 
 # COPYRIGHT
 copyright: 'Copyright &copy; 2025 ~ now Mitsuki_Lian. All rights reserved.'
