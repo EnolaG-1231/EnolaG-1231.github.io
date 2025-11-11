@@ -151,3 +151,44 @@ nav.md-nav--secondary ul {
 :root[data-md-color-scheme="slate"] .md-typeset pre {
   background: rgba(255,255,255,.06);
 }
+
+
+
+
+
+/* ===========================
+   解决 正文部分的界面 遮挡翻译语言选择栏的问题
+   =========================== */
+/* 1) 只提升 header 的叠放上下文，不动它的几何布局 */
+.md-header {
+  isolation: isolate;              /* 新建 stacking context */
+  z-index: 2000 !important;        /* 压在正文层之上 */
+}
+/* 2) 提升语言下拉菜单的图层，不改变默认定位方式 */
+.md-header .md-select__inner {
+  z-index: 2001 !important;        /* 仅层级更高，不加 position */
+}
+/* 3) 正文层仍在下方，避免顶翻 header */
+.md-main,
+.md-content,
+.md-sidebar--primary,
+.md-sidebar--secondary {
+  position: relative;
+  z-index: 1 !important;
+}
+/* 4) 恢复 header 自带的装饰效果（避免“变丑”）——撤销之前误加的禁点 */
+.md-header::before,
+.md-header::after {
+  pointer-events: auto !important; /* 回归默认，让阴影/渐变正常 */
+}
+/* 5) 仍然避免正文伪元素遮挡点击 */
+.md-content::before,
+.md-main::before,
+.md-container::before,
+.md-sidebar--primary::before,
+.md-sidebar--secondary::before {
+  pointer-events: none !important;
+}
+/* 6) 首页背景那层继续不抢点击 */
+body::before { pointer-events: none !important; }
+
