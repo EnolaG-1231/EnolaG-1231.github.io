@@ -215,6 +215,7 @@ nav:
   - Docs:
     - Note1_Computer: 'doc/n1.md'
     - Note2_Svenska: 'doc/n2.md'
+    - Note3_PDE: 'doc/n3.md'
     - about: doc/about.md
   - Blog:
     - blog/index.md
@@ -280,6 +281,12 @@ extra_javascript: # 引用自定义 JS 文件
   # 博客文章标记脚本
   - javascripts/blog-scope.js
   - javascripts/home-greeting.js
+  # latex支持
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
   # 鼠标点击特效
   - javascripts/click-effects.js
   - javascripts/md-link-fixer.js # 解决markdown内链接问题
@@ -294,3 +301,5 @@ extra_css: # 引用自定义 CSS 文件
   - stylesheets/extra2.css
   - stylesheets/gallery.css
   - stylesheets/home.css # 放最后防覆盖
+  # latex支持
+  - https://unpkg.com/katex@0/dist/katex.min.css
