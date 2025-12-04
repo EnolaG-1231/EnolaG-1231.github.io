@@ -213,13 +213,9 @@ markdown_extensions: # 根据指定编程语言高亮显示代码，并可以设
 nav:
   - Home: 'index.md'
   - Docs:
-    - Note1_Computer: 'doc/n1.md'
-    - Note2_Svenska: 'doc/n2.md'
-    - Note3_PDE: 'doc/n3.md'
     - about: doc/about.md
   - Blog:
     - blog/index.md
-    - about: blog/about.md
   - Gallery: 
     - 'gallery/gallery.md'
   - Logs: 'log.md'
