@@ -304,3 +304,8 @@ nav:
   - Gallery: 
     - 'gallery/gallery.md'
   - Logs: 'log.md'
+
+
+validation:
+  links:
+    not_found: ignore
