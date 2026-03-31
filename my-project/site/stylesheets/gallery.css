@@ -1,0 +1,75 @@
+/* 只在 Gallery 页面生效：依赖 #gallery-flag 进行作用域限制 */
+html:has(#gallery-flag) .document-dates,
+html:has(#gallery-flag) .mkdocs-document-dates,
+html:has(#gallery-flag) .document-dates__container {
+  display: none !important;           /* 1) 隐藏作者/文档日期 */
+}
+
+/* 2) 标题居中放大 */
+html:has(#gallery-flag) .md-content .md-typeset h1:first-of-type {
+  text-align: center;
+  font-size: clamp(28px, 6vw, 56px);
+  letter-spacing: .02em;
+  margin: .25rem auto 1.25rem;
+}
+
+/* 3) 瀑布流画廊（最多 4-5 列，自动适配比例） */
+html:has(#gallery-flag) .gallery-wall {
+  --col-width: 260px;     /* 每列期望宽度（你可以微调到合适的卡片大小） */
+  --col-gap: 16px;        /* 列间距 */
+
+  column-width: var(--col-width);
+  column-gap: var(--col-gap);
+
+  /* 最多 5 列时的最大容器宽度（= 5列宽 + 4个间距） */
+  max-width: calc(5 * var(--col-width) + 4 * var(--col-gap));
+
+  margin-left: auto;
+  margin-right: auto;
+  padding-inline: 8px;    /* 两侧留点呼吸 */
+}
+/* 不同屏幕宽度下的列数 */
+@media (min-width: 1280px) { html:has(#gallery-flag) .gallery-wall { column-count: 5; } }
+@media (min-width: 960px) and (max-width: 1279px) { html:has(#gallery-flag) .gallery-wall { column-count: 4; } }
+@media (min-width: 720px) and (max-width: 959px) { html:has(#gallery-flag) .gallery-wall { column-count: 3; } }
+@media (max-width: 719px) { html:has(#gallery-flag) .gallery-wall { column-count: 2; } }
+
+/* 单张卡片样式 */
+html:has(#gallery-flag) .gallery-card {
+  display: inline-block;              /* 让列布局把卡片当块流排布 */
+  width: 100%;
+  margin: 0 0 16px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--md-default-bg-color);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  box-shadow: 0 4px 14px rgba(0,0,0,.06);
+  text-decoration: none;
+  color: inherit;
+  break-inside: avoid;                /* 确保卡片不被分割 */
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+html:has(#gallery-flag) .gallery-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.12);
+  border-color: var(--md-primary-fg-color);
+}
+
+/* 缩略图：保持原始长宽比，铺满卡片宽度 */
+html:has(#gallery-flag) .gallery-thumb {
+  display: block;
+  width: 100%;
+  height: auto;                       /* 还原并保留比例 */
+  object-fit: cover;                  /* 不裁切比例时可用 contain；cover 更饱满 */
+  background: #f4f6f8;                /* 图片未加载前的底色 */
+}
+
+/* 字幕条（可选） */
+html:has(#gallery-flag) .gallery-caption {
+  display: block;
+  padding: .55rem .8rem;
+  font-size: .92rem;
+  color: var(--md-default-fg-color);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.02), rgba(0,0,0,0));
+}

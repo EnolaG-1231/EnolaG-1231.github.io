@@ -10,12 +10,12 @@ hide:
 # Welcome to Lian's Home
 
 This is my private site.
-申请季中所有笔记和博文都暂时隐藏了‧º·(˚ ˃̣̣̥᷄⌓˂̣̣̥᷅ )‧º·˚！！待回归;_;！！
 
 <div id="home-greeting" class="home-greeting">Loading greeting…</div>
 
 
 <style>
+/* 首页：默认先上浅色背景 */
 html:has(#home-flag) body::before {
   content: "";
   position: fixed;
@@ -25,14 +25,20 @@ html:has(#home-flag) body::before {
   pointer-events: none;
 }
 
-
+/* ============================
+   深色模式兜底三连：
+   1) html 有 data-md-color-scheme
+   2) body 有 data-md-color-scheme
+   3) 外层随便谁有 data-md-color-scheme
+   谁命中谁覆盖
+   ============================ */
 html[data-md-color-scheme="slate"]:has(#home-flag) body::before,
 body[data-md-color-scheme="slate"]:has(#home-flag)::before,
 [data-md-color-scheme="slate"] body:has(#home-flag)::before {
   background-image: url("/static/bg-dark.png") !important;
 }
 
-/* 背景透明 */
+/* 首页把中间内容弄透明，露出背景 */
 html:has(#home-flag) .md-container,
 html:has(#home-flag) .md-main,
 html:has(#home-flag) .md-content,
@@ -44,7 +50,7 @@ html:has(#home-flag) .md-sidebar--secondary {
   backdrop-filter: none !important;
 }
 
-/* 代码区 */
+/* 首页代码区稍微垫底 */
 html:has(#home-flag) .md-typeset pre,
 html:has(#home-flag) .md-typeset code { background: rgba(0,0,0,0.06); }
 html[data-md-color-scheme="slate"]:has(#home-flag) .md-typeset pre,

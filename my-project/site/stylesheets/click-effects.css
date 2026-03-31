@@ -1,0 +1,15 @@
+/* 点击冒心心的样式与动画 */
+.click-pop{
+  position: fixed;
+  left: 0; top: 0;
+  transform: translate(-50%, -50%) scale(.8);
+  font-size: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .45s ease, opacity .45s ease;
+  z-index: 9999;
+}
+.click-pop.show{
+  transform: translate(-50%, -120%) scale(1.4) rotate(-8deg);
+  opacity: .9;
+}

@@ -1,0 +1,67 @@
+
+
+/* ----------------------------------------------------------
+   font.css  — 全站字体 + 博客页专用字体（正文区域）
+   用法：
+     - 默认：博客页正文用【汇文明朝体】；
+     - 想换成仿宋：注释掉“方案A”，解开“方案B”即可。
+   依赖：
+     - 需要你已按我之前给的 blog-scope.js 给 <html> 注入 .is-blog
+       （/blog/ 路径的页面都会带 .is-blog）
+   ---------------------------------------------------------- */
+
+/* 1) 远程字体：必须全部置顶（避免 @import 被忽略） */
+@import url('https://fontsapi.zeoseven.com/292/main/result.css');  /* LXGW WenKai */
+@import url('https://chinese-fonts-cdn.deno.dev/packages/hwmct/dist/%E6%B1%87%E6%96%87%E6%98%8E%E6%9C%9D%E4%BD%93/result.css'); /* 汇文明朝体 */
+@import url('https://fontsapi.zeoseven.com/256/main/result.css');  /* 汇文明朝体 备用源 */
+
+/* 2) 全站默认字体：LXGW WenKai */
+body {
+  font-family: "LXGW WenKai", "Noto Serif SC", "PingFang SC", "Microsoft YaHei",
+               "Helvetica Neue", Arial, sans-serif;
+  font-weight: normal;
+}
+
+/* 返回顶部按钮（可留可删） */
+button.md-top {
+  font-family: "LXGW WenKai";
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+/* ----------------------------------------------------------
+   3) 博客页正文字体（只作用于中间正文区域）
+   方案 A（默认启用）：汇文明朝体
+   ----------------------------------------------------------*/
+.is-blog .md-content .md-typeset {
+  font-family: "Huiwen-mincho", "Huiwen Mincho",
+               "Source Han Serif SC", "Noto Serif SC",
+               "Songti SC", "SimSun", serif !important;
+  font-weight: 400;
+  letter-spacing: .02em;
+}
+
+
+/* 博客页的代码区域仍用等宽字体，避免被正文字体影响可读性 */
+.is-blog .md-content code,
+.is-blog .md-content pre {
+  font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+               "Liberation Mono", monospace;
+}
+
+/* ----------------------------------------------------------
+   4) 博客页正文字体（备选）
+   方案 B（想试仿宋时把下面解开，同时注释掉上面“方案A”）
+   ----------------------------------------------------------
+.is-blog .md-content .md-typeset {
+  font-family: "FangSong", "FangSong_GB2312", "STFangsong",
+               "Kaiti SC", "Songti SC", "Noto Serif SC", serif !important;
+  font-weight: 400;
+  letter-spacing: .01em;
+}
+.is-blog .md-content code,
+.is-blog .md-content pre {
+  font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas,
+               "Liberation Mono", monospace;
+}*/
+/* ---------------------------------------------------------- */

@@ -1,0 +1,56 @@
+/* 全站默认：不画背景 */
+body::before { content: none !important; }
+
+/* 首页：按主题切图 —— 用变量统一管理 */
+:root[data-md-color-scheme="default"] { --home-bg: url("../static/bg-light.png"); }
+:root[data-md-color-scheme="slate"]  { --home-bg: url("../static/bg-dark.png"); }
+
+/* 只在首页挂背景（有 #home-flag 才生效） */
+html:has(#home-flag) body::before {
+  content: "" !important;         /* 关键：覆盖前面的 none !important */
+  position: fixed;
+  inset: 0;
+  background-image: var(--home-bg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 0;
+  pointer-events: none;            /* 不拦截点击 */
+  opacity: 1;
+}
+
+/* 内容浮到背景之上 */
+.md-container, .md-main, .md-content, .md-sidebar, .md-header {
+  position: relative;
+  z-index: 1;
+}
+
+/* 仅首页把正文/侧栏透明（其余页保持主题默认） */
+html:has(#home-flag) .md-main .md-content,
+html:has(#home-flag) .md-content__inner,
+html:has(#home-flag) .md-sidebar--primary,
+html:has(#home-flag) .md-sidebar--secondary {
+  background: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+
+/* 首页问候样式（保留你的风格） */
+.home-greeting {
+  text-align: center;
+  font-weight: 600;
+  font-size: clamp(22px, 5vw, 42px);
+  line-height: 1.3;
+  margin: 1.2rem auto 2rem;
+  padding: .75rem 1.25rem;
+  max-width: 28ch;
+  background: rgba(0,0,0,0.0);
+  text-shadow: 0 1px 2px rgba(0,0,0,.35);
+}
+@media (max-width: 768px) {
+  .home-greeting {
+    margin: 1rem auto 1.4rem;
+    font-size: clamp(20px, 6vw, 34px);
+  }
+}

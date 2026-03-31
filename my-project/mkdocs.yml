@@ -209,17 +209,6 @@ markdown_extensions: # 根据指定编程语言高亮显示代码，并可以设
   - pymdownx.tilde # 启用：删除线 ~~、下标 ~
   
 
-# navigation
-nav:
-  - Home: 'index.md'
-  - Docs:
-    - about: doc/about.md
-  - Blog:
-    - blog/index.md
-  - Gallery: 
-    - 'gallery/gallery.md'
-  - Logs: 'log.md'
-
 # extra configuration
 extra:
   generator: true # 删除页脚显示“使用MkDocs材料制造”
@@ -264,8 +253,7 @@ extra:
     - name: 日本語
       link: "javascript:GLMTranslate.translateTo('japanese');"
       lang: ja
-
-
+# 没有瑞典语
 
 extra_javascript: # 引用自定义 JS 文件
   - javascripts/extra.js 
@@ -299,3 +287,20 @@ extra_css: # 引用自定义 CSS 文件
   - stylesheets/home.css # 放最后防覆盖
   # latex支持
   - https://unpkg.com/katex@0/dist/katex.min.css
+
+
+
+# navigation
+nav:
+  - Home: 'index.md'
+  - Docs:
+    - Note1_Computer: 'doc/n1.md'
+    - Note2_Svenska: 'doc/n2_Svenska.md'
+    - Note3_PDE: 'doc/n3_PDE.md'
+    - about: doc/about.md
+  - Blog:
+    - blog/index.md
+    - about: blog/about.md
+  - Gallery: 
+    - 'gallery/gallery.md'
+  - Logs: 'log.md'
