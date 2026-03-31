@@ -95,7 +95,7 @@ plugins:
         - index.md
         - log.md
         - blog/index.md
-        - blog/posts/*
+        - docs/blog/posts/**
         - about/* # Exclude all files in private directory, including subdirectories
 
   - blog:
