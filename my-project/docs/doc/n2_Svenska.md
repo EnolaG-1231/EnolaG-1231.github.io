@@ -96,7 +96,14 @@ anteckning - note loppet - the race former - forms kvalitet - quality
 ansökning - application sekreterare - secretary material - material
 vild - wild  avsnitt - section utformning - design patient - patient
 dokument - document kök - kitchen säkerhet - security fönster - windows
-ytterdörr - front door karta - map filer - files
+ytterdörr - front door karta - map filer - files händelse - event
+affär - deal utbildning - education mardröm - nightmare ö - island
+elever - pupils kommentar - comment väder - weather vädret - the weather
+match - match patienter - patients led - queue stol - chair
+användare - user fördel - benefit förståelse - understanding mark - land
+guld - gold kort - card kontant - cash bro - bridge
+dela - part
+
 
 ### kläder - clothes
 
@@ -178,8 +185,8 @@ har tur - have luck ligga - be located hände - happen
 följ - follow missa - miss gissa - guess råka - happen
 lära mig - learn önskar - wish njut - enjoy avsluta - finish
 spara - save erbjuda - offer vinner - win kosta - cost
-inkluderar - include stämmer - correct presterar - result spelade - played
-täck - cover lägg - add kommer överens - agree flyger - fly
+inkluderar - include stämmer - correct prestera - result spelade - played
+täck - cover tillägg - add kommer överens - agree flyger - fly
 välj - choose går sönder - break markera - highlight drömde - dreamt
 använder - use tänka - consider lever - live jobbar - work
 hatar - hate flytta - move bli - become slog - hit
@@ -189,7 +196,15 @@ vaknar - wake up skynda - hurry innebära - mean bygga - build
 leker - play handla - act förklara - explain fick - got
 sa - said gjorde - made trodde - thought ville - wanted
 gick - went ringde - called stödde - supported gillade - liked
-skjuter - shoot spenderade - spend
+skjuter - shoot spenderade - spend lägga märke - notice
+lägga - lie stäng - shut förbättra - improve tryck - press
+klär dig - dress cykla - ride a bike handla - act trodde - thought
+kom hit - came here berättat - told såg - saw hört - heard
+frågade - asked ha på mig - wear kämpa - fight passar - fit
+spillde - spilled sålde - sold diskutera - discuss skriva ut - print
+lagade - fixed lova - promise   slutföra - complete verkar - seem
+försvunnit - dissapeared försvinna - dissapear förvanta - expect placeras - be placed
+sparka - kick fortsätt - continue
 
 ### adj
 färgglad - colorful skrämmande - scary gammal - old dyr - expensive
@@ -222,8 +237,10 @@ ledande - leading centrala - central totala - total politisk - politic
 varje - every ursprungliga - original färska - fresh värt - worth
 naturlig - natural dumt - stupid begränsat - limited hemlig - secret
 liknande - similar torra - dry stängt - closed snäll - friendly
-vansinnig - mad hungrig - hungry främmande - foreign
-
+vansinnig - mad hungrig - hungry främmande - foreign trasig - broken
+tomt - empty uppriktig - frank positiv - positive grundläggande - basic
+tunga - heavy längre - longer billig - cheap bästa - best
+konstig - strange farligt - dangerous spännande - exciting dyraste - most expensive
 
 ### adv
 flera - several många - many ibland - sometimes gånger - times
@@ -232,7 +249,9 @@ bara - only säker - sure möjligt - possible ensamma - alone
 närmare - almost hårt - hard tillbaka - back enda - only
 ner - down någonsin - ever in - into efter - after
 nu - now måste - must ska - will snälla - please
-mest - most ska - be going to verkligen - really
+mest - most ska - be going to verkligen - really oftast - generally
+lika - as än - than bättre - better
+lika ... som ... - as... as...
 
 ### pron
 vem - who varför - why vart - where vad - what
@@ -274,6 +293,12 @@ Häftigt. - Cool.
 Ha så kul! - Have fun! 
 Lycka till! - Good luck!
 Grattis på födelsedagen! - Happy birthday!
+Kommer hit! - Come here!
+
+## fix
+hela tiden - all the time
+Får jag vara ...? - May I be ... with you?
+lika... som... - as... as...
 
 </p><h1 id="01" name="01"><strong>02</strong></h1><p>
 
@@ -284,10 +309,21 @@ De svarta skorna - The black shoes
 
 </p><h1 id="01" name="01"><strong>03</strong></h1><p>
 
-### 形容词
-形容词形式取决于所修饰之物的 en/ett/复
 
-### 代词
+
+### adj.
+tre former: en/ett/plural
+
+### 
+1. Regular: Comparative -are; Superlative -ast
+2. Irregular: vowel changes or annat
+
+### v.
+#### past +de
+#### v2
+the verb comes immediately after the first grammatical **constituent**, which can be a single word or a whole phrase
+
+### pron.
 
 主语拥有某物，且该物是句子宾语时，必须使用反身代词sin/sitt/sina(自己的)
 Pojken dricker sitt ~~hans~~ te - The boy is drinking his tea
