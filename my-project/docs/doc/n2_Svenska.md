@@ -102,7 +102,8 @@ elever - pupils kommentar - comment väder - weather vädret - the weather
 match - match patienter - patients led - queue stol - chair
 användare - user fördel - benefit förståelse - understanding mark - land
 guld - gold kort - card kontant - cash bro - bridge
-dela - part
+dela - part samhälle - society verksamhet - activity recension - review
+skott - shot sovrum - bedroom
 
 
 ### kläder - clothes
@@ -190,9 +191,9 @@ täck - cover tillägg - add kommer överens - agree flyger - fly
 välj - choose går sönder - break markera - highlight drömde - dreamt
 använder - use tänka - consider lever - live jobbar - work
 hatar - hate flytta - move bli - become slog - hit
-rapporterar - report sök - search lita - trust följa med - join
+rapporterar - report sök - search lita - trust följa med/gick med - join/joined
 sjunga - sing ladda ner - download välja - pick förlora - lose
-vaknar - wake up skynda - hurry innebära - mean bygga - build
+vaknar - wake up skynda - hurry innebära/innebar - involve bygga - build
 leker - play handla - act förklara - explain fick - got
 sa - said gjorde - made trodde - thought ville - wanted
 gick - went ringde - called stödde - supported gillade - liked
@@ -212,6 +213,7 @@ lång - tall långt - long liten - small ung - young
 bra(质量)/god-goda(口味、情感) - good trevlig - nice dålig - bad ny - new 
 rätt - right olika - different samma - same fantastisk - great
 kall - cold arbetande - working beautiful - vacker lätt - easy
+viktigt - improtant
 viktigare - more important fel - wrong fullt - full
 snabb - fast nära - close tidigt - early sent - late
 tydlig - clear internationel - international högst - top 
@@ -241,6 +243,7 @@ vansinnig - mad hungrig - hungry främmande - foreign trasig - broken
 tomt - empty uppriktig - frank positiv - positive grundläggande - basic
 tunga - heavy längre - longer billig - cheap bästa - best
 konstig - strange farligt - dangerous spännande - exciting dyraste - most expensive
+bekväma - comfortable ovanlig - unusual 
 
 ### adv
 flera - several många - many ibland - sometimes gånger - times
@@ -250,7 +253,7 @@ närmare - almost hårt - hard tillbaka - back enda - only
 ner - down någonsin - ever in - into efter - after
 nu - now måste - must ska - will snälla - please
 mest - most ska - be going to verkligen - really oftast - generally
-lika - as än - than bättre - better
+lika - as än - than bättre - better för evigt - forever
 lika ... som ... - as... as...
 
 ### pron
