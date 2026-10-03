@@ -80,7 +80,7 @@ yarn.lock
 *.zip
 *.tar.gz
 *.rar
-*.pdf
+# *.pdf
 *.docx
 *.xlsx
 
