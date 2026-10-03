@@ -297,6 +297,7 @@ nav:
     - Note1_Computer: 'doc/n1.md'
     - Note2_Svenska: 'doc/n2_Svenska.md'
     - Note3_PDE: 'doc/n3_PDE.md'
+    - Note4_Notes: 'doc/n4_notes.md'
     - about: doc/about.md
   - Blog:
     - blog/index.md
